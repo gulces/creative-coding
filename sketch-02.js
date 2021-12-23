@@ -39,7 +39,7 @@ const sketch = () => {
       context.save();
       context.translate(x, y);
       context.rotate(-angle);
-      context.scale(random.range(0.1, 2), random.range(0.2, 0.5));
+      context.scale(random.range(0.1, 2), random.range(0.2, 5));
 
       context.fillStyle = 'black';
       context.beginPath();
