@@ -3,7 +3,8 @@ const rgbaToHex = require('canvas-sketch-util/lib/rgba-to-hex');
 const random = require('canvas-sketch-util/random');
 
 const settings = {
-  dimensions: [ 1080, 1080 ]
+  dimensions: [ 1080, 1080 ],
+  animate: true
 };
 
 let text = 'G';
@@ -24,7 +25,7 @@ const sketch = ({ context, width, height }) => {
   typeCanvas.height = rows;
 
   return ({ context, width, height }) => {
-    typeContext.fillStyle = 'black';
+    typeContext.fillStyle = 'crimson';
     typeContext.fillRect(0, 0, cols, rows);
 
     fontSize = cols * 1.2;
@@ -46,13 +47,13 @@ const sketch = ({ context, width, height }) => {
     typeContext.translate(tx, ty);
     typeContext.beginPath();
     typeContext.rect(mx, my, mw, mh);
-    typeContext.stroke();
+    // typeContext.stroke();
 
     typeContext.fillText(text, 0, 0);
     typeContext.restore();
 
     const typeData = typeContext.getImageData(0, 0 ,cols, rows).data;
-    context.fillStyle = 'black';
+    context.fillStyle = 'crimson';
     context.fillRect(0, 0, width, height);
 
     context.textBaseline = 'middle';
