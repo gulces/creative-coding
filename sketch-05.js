@@ -7,6 +7,7 @@ const settings = {
 let text = 'G';
 let fontSize = 1200;
 let fontFamily = 'Optima, sans-serif';
+let manager;
 
 const sketch = () => {
   return ({ context, width, height }) => {
@@ -34,10 +35,21 @@ const sketch = () => {
   context.rect(mx, my, mw, mh);
   context.stroke();
 
-  context.fillText('G', 0, 0);
+  context.fillText(text, 0, 0);
   context.restore();
 
   };
 };
 
-canvasSketch(sketch, settings);
+const onKeyUp = (e) => {
+  text = e.key.toUpperCase();
+  manager.render();
+}
+
+document.addEventListener('keyup', onKeyUp);
+
+const start = async () => {
+  manager = await canvasSketch(sketch, settings);
+};
+
+start();
