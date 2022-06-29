@@ -6,23 +6,22 @@ const settings = {
 };
 
 const sketch = ({ context, width, height }) => {
-  const agents = [];
+  const smallAgents = [];
 
-  for (let index = 0; index < 40; index++) {
-    const x = random.range(0, width);
-    const y = random.range(0, height);
-    const dotSizes = [10, 20, 40];
-    const radius = random.pick(dotSizes);
-    // const radius = random.range(0, 40);
+  let y = -10;
+  for (let index = 0; index < 80; index++) {
+    const x = 10;
+    y = y + 20;
+    const radius = 8;
 
-    agents.push(new Agent(x, y, radius))
+    smallAgents.push(new Agent(x, y, radius))
   }
 
   return ({ context, width, height }) => {
     context.fillStyle = '#F8C632';
     context.fillRect(0, 0, width, height);
 
-    agents.forEach(agent => {
+    smallAgents.forEach(agent => {
       agent.draw(context);
     })
 
