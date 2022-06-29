@@ -2,29 +2,40 @@ const canvasSketch = require('canvas-sketch');
 const random = require('canvas-sketch-util/random');
 
 const settings = {
-  dimensions: [ 1080, 1080 ]
+  dimensions: [ 1440, 1152 ]
 };
 
 const sketch = ({ context, width, height }) => {
-  const smallAgents = [];
+  const smallDotsLeft = [];
+  const smallDotsCentre = [];
+  const smallDotsRight = [];
 
-  let y = -10;
-  for (let index = 0; index < 80; index++) {
-    const x = 10;
-    y = y + 20;
-    const radius = 8;
-
-    smallAgents.push(new Agent(x, y, radius))
+  for (let index = 0; index < 400; index++) {
+    for (let y = -10; y < height; y = y + 20) {
+      for (let x = -64; x < 200; x = x + 20) {
+        const radius = 6;
+        smallDotsLeft.push(new Agent(x, y, radius))
+        smallDotsCentre.push(new Agent(x + 640, y, radius))
+        smallDotsRight.push(new Agent(x + 1280, y, radius))
+      }
+    }
   }
 
   return ({ context, width, height }) => {
     context.fillStyle = '#F8C632';
     context.fillRect(0, 0, width, height);
 
-    smallAgents.forEach(agent => {
+    smallDotsLeft.forEach(agent => {
       agent.draw(context);
     })
 
+    smallDotsCentre.forEach(agent => {
+      agent.draw(context);
+    })
+
+    smallDotsRight.forEach(agent => {
+      agent.draw(context);
+    })
   };
 };
 
