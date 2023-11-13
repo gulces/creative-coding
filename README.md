@@ -11,4 +11,20 @@ I'm tidying up the documentation for the projects I made for [this](https://www.
 <br>
 
 In the meantime, could I interest you in some [Hydra.ojack](https://github.com/ojack/hydra-sync) visuals I've generated as another ongoing generative art project?
+<br>
+<br>
 
+<div align="center">
+  <img src="public/assets/hydra-demo-2.gif" alt="">
+</div>
+<br>
+
+<div align="center">
+  <img src="public/assets/hydra-demo-3.gif" alt="">
+</div>
+<br>
+
+<div align="center">
+  <img src="public/assets/hydra-demo-1.gif" alt="">
+</div>
+<br>
